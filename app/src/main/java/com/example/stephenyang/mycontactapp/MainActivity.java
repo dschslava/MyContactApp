@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myDb = new DatabaseHelper(this);
+        editName = (EditText) findViewById(R.id.editText_Name);
     }
 
     public void addData(View v){
