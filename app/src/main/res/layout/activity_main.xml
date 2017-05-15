@@ -8,23 +8,40 @@
 
 
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        tools:layout_editor_absoluteY="55dp"
-        android:layout_marginEnd="8dp"
-        tools:layout_editor_absoluteX="161dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name:"
+        android:id="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="78dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:layout_width="299dp"
+        android:layout_height="56dp"
+        android:id="@+id/editText_Name"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        tools:layout_editor_absoluteY="-5dp"
+        tools:layout_editor_absoluteX="78dp" />
 
     <Button
-        android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Data"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="398dp" />
+        android:text="ADD DATA"
+        android:id="@+id/button_add"
+        android:layout_below="@+id/editText_Name"
+        android:layout_alignParentStart="true"
+        tools:layout_editor_absoluteY="409dp"
+        tools:layout_editor_absoluteX="146dp" />
+
 
 </android.support.constraint.ConstraintLayout>
