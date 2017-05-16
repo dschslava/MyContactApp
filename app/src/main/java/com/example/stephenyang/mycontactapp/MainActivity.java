@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
 import android.widget.Toast;
+import android.database.Cursor;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
@@ -45,5 +46,24 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+    }
+
+    public void viewData(View v){
+        Cursor res = myDb.getAllData();
+        if (res.getCount() == 0){
+            showMessage("Error", "No data found in database");
+            //log message, toast
+            return;
+        }
+        StringBuffer buffer = new StringBuffer();
+        //loop with Cursor moveToNext method
+        //append each column to buffer
+        //use getString
+
+        showMessage("Data", buffer.toString());
+    }
+
+    private void showMessage(String title, String message) {
+
     }
 }

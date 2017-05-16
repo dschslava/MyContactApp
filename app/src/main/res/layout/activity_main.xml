@@ -86,21 +86,32 @@
 
 
     <Button
+        android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD DATA"
-        android:id="@+id/button_add"
-        android:layout_below="@+id/editText_Name"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editText_Name"
+        android:onClick="addData"
+        android:text="ADD DATA"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="parent"
-        tools:layout_editor_absoluteY="409dp"
-        tools:layout_editor_absoluteX="146dp" />
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="409dp" />
 
-
+    <Button
+        android:id="@+id/button_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Contacts"
+        android:onClick="viewData"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="297dp" />
 
 
 </android.support.constraint.ConstraintLayout>
