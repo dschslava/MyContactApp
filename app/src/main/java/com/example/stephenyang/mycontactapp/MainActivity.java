@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addData(View v){
-        boolean isInserted = (myDb.insertData(editName.getText().toString())) && (myDb.insertData(editPhone.getText().toString()))
-                && (myDb.insertData(editAddress.getText().toString()));
-
+        boolean isInserted = (myDb.insertData(editName.getText().toString(),editPhone.getText().toString(),editAddress.getText().toString()));
         if (isInserted){
             Log.d("MyContact", "Data insertion successful");
             //toast!!! data inserted correctly
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        showMessage("Data", buffer.toString());
+        showMessage("Contacts", buffer.toString());
     }
 
     private void showMessage(String title, String message) {

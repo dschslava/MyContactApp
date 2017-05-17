@@ -15,12 +15,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_NAME = "contact_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
-    public static final String COL_3 = "PHONE NUMBER";
+    public static final String COL_3 = "PHONE";
     public static final String COL_4 = "ADDRESS";
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);//if database already exists, adding impossible, +1 to number
     }
 
     @Override
@@ -36,12 +36,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public boolean insertData(String name){
+    public boolean insertData(String name, String phone, String address){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
-        contentValues.put(COL_3, name);
-        contentValues.put(COL_4, name);
+        contentValues.put(COL_3, phone);
+        contentValues.put(COL_4, address);
 
 
         long result = db.insert(TABLE_NAME, null, contentValues);
