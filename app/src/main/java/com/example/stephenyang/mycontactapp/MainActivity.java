@@ -71,10 +71,9 @@ public class MainActivity extends AppCompatActivity {
         //append each column to buffer
         //use getString
 
-        for (int i=0; i<res.getCount();i++ ) {
-            for (int j=0; j<3; j++) {
-                res.moveToNext();
-            }
+        for (int i = 1; i <= res.getCount(); i++ ) {
+            buffer.append(res.getString(i));
+            res.moveToNext();
         }
 
         showMessage("Contacts", buffer.toString());

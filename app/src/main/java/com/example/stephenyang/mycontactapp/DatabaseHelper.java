@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
+import android.util.Log;
+
 /**
  * Created by stephenyang on 11/5/17.
  */
@@ -20,13 +22,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);//if database already exists, adding impossible, +1 to number
+        super(context, DATABASE_NAME, null, 2);//if database already exists, adding impossible, +1 to number
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
         //in SQL
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, )" +
+                "NAME STRING NOT NULL, PHONE STRING NOT NULL, ADDRESS STRING NOT NULL");
 
     }
     @Override
@@ -37,6 +40,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     public boolean insertData(String name, String phone, String address){
+        Log.d("MyContact", name);
+        Log.d("MyContact", phone);
+        Log.d("MyContact", address);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
