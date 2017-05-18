@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editAddress;
     EditText editSearch;
     Button btnAddData;
-    String fields[] = {"Name", "Phone", "Address"};
+    String fields[] = {"ID", "Name", "Phone", "Address"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         while(res.moveToNext()) {
             for(int i = 0; i<res.getColumnCount(); i++) {
-                buffer.append(fields[i]+ res.getString(i) + "\n");
+                buffer.append(fields[i] + ": "+ res.getString(i) + "\n");
             }
             buffer.append("\n");
         }
