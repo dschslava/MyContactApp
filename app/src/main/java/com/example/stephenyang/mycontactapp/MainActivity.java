@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editName;
     EditText editPhone;
     EditText editAddress;
+    EditText editSearch;
     Button btnAddData;
     String fields[] = {"Name", "Phone", "Address"};
     @Override
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editText_Name);
         editPhone = (EditText) findViewById(R.id.editText_Phone);
         editAddress = (EditText) findViewById(R.id.editText_Address);
+        editSearch = (EditText) findViewById((R.id.editText_search));
     }
 
     public void addData(View v){
@@ -89,5 +91,41 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+
+    public void searchByName (View v) {
+
+        String search = editSearch.getText().toString();
+
+        Cursor res = myDb.getAllData();
+
+        StringBuffer buffer = new StringBuffer();
+        StringBuffer bufferCopy = new StringBuffer();
+
+
+
+        while(res.moveToNext()) {
+            for (int i = 0; i < res.getCount(); i++) {
+                if (res.getString(1).equals(search)) {
+                    if(bufferCopy.indexOf(fields[0] + res.getString(0) + "\n") == -1) {
+                        for (int field = 0; field < 4; field++) {
+                            if(field != 0) {buffer.append(fields[field] + res.getString(field) + "\n");}
+                            bufferCopy.append(fields[field] + res.getString(field) + "\n");
+                        }
+                        buffer.append("\n");
+                    }
+                }
+            }
+        }
+
+        if (buffer.toString().equals("")) {
+            showMessage("Search failed", " ");
+
+        } else {
+            showMessage("Search result:", buffer.toString());
+        }
+
+        editSearch.setText("");
+
     }
 }
