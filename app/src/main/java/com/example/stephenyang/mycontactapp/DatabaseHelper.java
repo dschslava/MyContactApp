@@ -22,13 +22,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);//if database already exists, adding impossible, +1 to number
+        super(context, DATABASE_NAME, null, 3);//if database already exists, adding impossible, +1 to number
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
         //in SQL
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PHONE TEXT, ADDRESS TEXT");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PHONE TEXT, ADDRESS TEXT)");
 
     }
     @Override
@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         contentValues.put(COL_4, address);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == 1){
+        if (result == -1){
             return false;
         }
         else return true;
