@@ -113,5 +113,32 @@
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="297dp" />
 
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_get"
+        android:layout_marginTop="37dp"
+        android:layout_toEndOf="@+id/button_get"
+        app:layout_constraintTop_toBottomOf="@id/editText_search"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        android:onClick="searchByName"
+        android:text="SEARCH" />
+
+    <EditText
+        android:id="@+id/editText_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_search"
+        android:layout_alignBottom="@+id/button_search"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignParentStart="true"
+        app:layout_constraintTop_toBottomOf="@id/button_get"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:layout_toStartOf="@+id/button_search" />
+
 
 </android.support.constraint.ConstraintLayout>
