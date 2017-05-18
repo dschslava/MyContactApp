@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editPhone;
     EditText editAddress;
     Button btnAddData;
+    String fields[] = {"Name", "Phone", "Address"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +72,13 @@ public class MainActivity extends AppCompatActivity {
         //append each column to buffer
         //use getString
 
-        for (int i = 1; i <= res.getCount(); i++ ) {
-            buffer.append(res.getString(i));
-            res.moveToNext();
+        while(res.moveToNext()) {
+            for(int i=1; i<res.getColumnCount(); i++) {
+                buffer.append(fields[i]+ res.getString(i) + "\n");
+            }
+            buffer.append("\n");
         }
+
 
         showMessage("Contacts", buffer.toString());
     }
