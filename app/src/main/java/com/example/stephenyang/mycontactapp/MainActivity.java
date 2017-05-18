@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+        editName.setText("");
+        editPhone.setText("");
+        editAddress.setText("");
     }
 
     public void viewData(View v){
