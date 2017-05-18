@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         //use getString
 
         while(res.moveToNext()) {
-            for(int i=1; i<res.getColumnCount(); i++) {
+            for(int i = 1; i<res.getColumnCount(); i++) {
                 buffer.append(fields[i]+ res.getString(i) + "\n");
             }
             buffer.append("\n");
